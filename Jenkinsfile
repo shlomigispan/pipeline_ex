@@ -5,9 +5,9 @@ pipeline {
 
     agent any
     parameters {
-        string(name: 'VERSION', defaultValue: '', desciption: 'someting')
-        choice(name: 'VERSION2', choices: ['1.1, 1.2, 1.3'], desciption: 'someting2')
-        booleanParam(name: 'VERSION3', defaultValue: true, desciption: 'someting3')
+        string(name: 'VERSION', defaultValue: '', description: 'someting')
+        choice(name: 'VERSION2', choices: ['1.1, 1.2, 1.3'], description: 'someting2')
+        booleanParam(name: 'VERSION3', defaultValue: true, description: 'someting3')
     }
     //כאן נוכל להגדיר כלים נוספים שנרצה לעבוד איתם לדוגמה מאייבן, גרידל וג'יי די קיי (גאווה) י
     //הכלים שנרצה לעבוד איתם חייבים להיות מותקנים בגנקינס בדלובל טוולס קונפיגוריישן
