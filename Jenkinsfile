@@ -7,10 +7,9 @@ pipeline {
         stage("build") {
             when { // דוגמה לתנאי בוליאני: כלומר רק אם <הביטוי באקספרשן הוא אמת> יקרה <מה שנמצא בסטאג'> י
                 expression { // היטוי הבוליאני שצריך להתקיים כדי שהסטאג' יתבצע
-
+                    BRANCH_NAME == 'dev'
                 }
             }
-                
             steps {
                 echo "building the app..."
             }
