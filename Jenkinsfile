@@ -51,7 +51,7 @@ pipeline {
                     usernamePassword(credentialsId: 'github', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
                     // כאן זה הבלוק שמושפע מהמשתני סביבה הפנימיים בתוך הבלוק שהגדרנו
-                    sh "some script ${USER} ${PWD}"
+                    sh "jgfcgjhgjh ${USER} ${PWD}"
                 }
             }
         }
