@@ -11,7 +11,7 @@ pipeline {
         // קדנטיאלס זו פונקציה שמושכת את הקרדנשיאלס מהגנקיס (כמובן אחרי שהגדרנו אותם ) ומכניסה אותם למשתני סביבה
         // כדי לעבוד עם הפונקציה הזו נהייה חייבים להתקין פלאגין שנקרא Credentials Binding
         // הפרמטר שהפונקציה מקבלת זה המזהה של הקרדנשיאלס
-        SERVER_CREDENTIALS = credentials('github')
+        SERVER_CRENTIALSGHFJ = credentials('github')
     }
     stages {
 
@@ -43,7 +43,7 @@ pipeline {
             
             steps {
                 echo "deploying the app..." 
-                echo "deploying th ${SERVER_CREDENTIALS}" 
+                echo "deploying th ${SERVER_CRENTIALSGHFJ}" 
 
             }
         }
