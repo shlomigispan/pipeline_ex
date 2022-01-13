@@ -11,7 +11,7 @@ pipeline {
         // קדנטיאלס זו פונקציה שמושכת את הקרדנשיאלס מהגנקיס (כמובן אחרי שהגדרנו אותם ) ומכניסה אותם למשתני סביבה
         // כדי לעבוד עם הפונקציה הזו נהייה חייבים להתקין פלאגין שנקרא Credentials Binding
         // הפרמטר שהפונקציה מקבלת זה המזהה של הקרדנשיאלס
-        SERVER_CRENTIALSGHFJ = credentials('github')
+        SERVER_CRENTIALS = credentials('github')
     }
     stages {
 
@@ -37,13 +37,22 @@ pipeline {
             
             steps {
                 echo "testing the app..."
+                // כאן זה דוגמה להגדרת משתני סביבבה ברמת הבלוק בלבד
+                withCredentials([
+                    // אנחנו יכולים להישתמש במילים יוזרניימפאסוורד פה כי זה סוג הקרדנשיאל שהגדרנו
+                    // ההגדרות בתוך הסוגריים הם: מאיזה איידי אנחנו רוצים לקחתת איך נקרא למשתנה שיאכסן את השם משתמש, איך נקרא למשתנה שיאכסן את הסיסמה
+                    usernamePassword(credentials: 'github', usernameVariable: USER, passwordVariable: PWD)
+                ]) {
+                    // כאן זה הבלוק שמושפע מהמשתני סביבה הפנימיים בתוך הבלוק שהגדרנו
+                    sh "some script ${USER} ${PWD}"
+                }
             }
         }
         stage("deploy") {
             
             steps {
                 echo "deploying the app..." 
-                echo "deploying th ${SERVER_CRENTIALSGHFJ}" 
+                echo "deploying th ${SERVER_CRENTIALS}" 
 
             }
         }
