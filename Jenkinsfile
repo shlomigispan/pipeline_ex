@@ -1,9 +1,18 @@
 // כאן נגדיר את המשתנים הלא מובנים מראש. נצטרך לקשר אותם לסקריפטים בשפת גרובי ששם נכתוב את הפעולות
+// כתבתי בהערה כי הגוב יכשל בלי
 // CODE_CHANGES == getGitChanges()
 pipeline {
 
     agent any
-
+    // כאן נגדיר משתנים לקובץ
+    environment {
+        // דוגמה למשתנה
+        NEW_VERSION = '1.3.0' 
+        // קדנטיאלס זו פונקציה שמושכת את הקרדנשיאלס מהגנקיס (כמובן אחרי שהגדרנו אותם ) ומכניסה אותם למשתני סביבה
+        // כדי לעבוד עם הפונקציה הזו נהייה חייבים להתקין פלאגין שנקרא Credentials Binding
+        // הפרמטר שהפונקציה מקבלת זה המזהה של הקרדנשיאלס
+        SERVER_CREDENTIALS = credentials('github_cran_ID')
+    }
     stages {
 
         stage("build") {
@@ -18,6 +27,10 @@ pipeline {
             }
             steps {
                 echo "building the app..."
+                // דוגמה לקריאה למשתנה. חשוב לשים לב שהמשתנה חייב להיות בגרשיים כפולות
+                echo "app versin ${NEW_VERSION}"
+                // דוגמה למשתנה בגרשים לא כפולות, בצורה זו הקובץ לא יקרא למשתנה
+                echo 'app versin ${NEW_VERSION}'
             }
         }
         stage("test") {
@@ -30,6 +43,7 @@ pipeline {
             
             steps {
                 echo "deploying the app..." 
+                echo "deploying th ${SERVER_CREDENTIALS}" 
 
             }
         }
