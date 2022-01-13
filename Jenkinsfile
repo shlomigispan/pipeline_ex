@@ -26,13 +26,13 @@ pipeline {
     }
     post {
         always {
-
+            echo "pass"
         }
         success {
-
+            echo "pass"
         }
         failure {
-            
+            echo "pass"
         }
     }
 }
