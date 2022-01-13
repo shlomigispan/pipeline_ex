@@ -1,5 +1,5 @@
 // כאן נגדיר את המשתנים הלא מובנים מראש. נצטרך לקשר אותם לסקריפטים בשפת גרובי ששם נכתוב את הפעולות
-CODE_CHANGES == getGitChanges() 
+"CODE_CHANGES == getGitChanges()"
 pipeline {
 
     agent any
