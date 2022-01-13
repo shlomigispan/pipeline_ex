@@ -11,7 +11,7 @@ pipeline {
         // קדנטיאלס זו פונקציה שמושכת את הקרדנשיאלס מהגנקיס (כמובן אחרי שהגדרנו אותם ) ומכניסה אותם למשתני סביבה
         // כדי לעבוד עם הפונקציה הזו נהייה חייבים להתקין פלאגין שנקרא Credentials Binding
         // הפרמטר שהפונקציה מקבלת זה המזהה של הקרדנשיאלס
-        SERVER_CREDENTIALS = credentials('github_cran_ID')
+        SERVER_CREDENTIALS = credentials('github')
     }
     stages {
 
