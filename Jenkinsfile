@@ -11,20 +11,21 @@ pipeline {
             }
         }
     }
-     stages {
+    stages {
 
         stage("test") {
-            echo "testing the app..."
+            
             steps {
-
+                echo "testing the app..."
             }
         }
     }
-     stages {
+    stages {
 
         stage("deploy") {
-            echo "deploying the app..."
+            
             steps {
+                echo "deploying the app..."
 
             }
         }
