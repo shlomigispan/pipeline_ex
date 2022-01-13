@@ -5,7 +5,12 @@ pipeline {
     stages {
 
         stage("build") {
+            when { // דוגמה לתנאי בוליאני: כלומר רק אם <הביטוי באקספרשן הוא אמת> יקרה <מה שנמצא בסטאג'> י
+                expression { // היטוי הבוליאני שצריך להתקיים כדי שהסטאג' יתבצע
 
+                }
+            }
+                
             steps {
                 echo "building the app..."
             }
@@ -19,19 +24,19 @@ pipeline {
         stage("deploy") {
             
             steps {
-                echo "deploying the app..."
+                echo "deploying the app..." 
 
             }
         }
     }
-    post {
-        always {
+    post { // כאן נגדיר מה קורה בסיום הפעולה
+        always { // תמיד לא משנה אם הצליח או לא
             echo "pass"
         }
-        success {
+        success { // פעולות שיקרו רק אם הגוב הצליח
             echo "pass"
         }
-        failure {
+        failure { // פעולות שיקרו רק אם הגוב נכשל
             echo "pass"
         }
     }
