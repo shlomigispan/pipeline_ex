@@ -48,7 +48,7 @@ pipeline {
                 withCredentials([
                     // אנחנו יכולים להישתמש במילים יוזרניימפאסוורד פה כי זה סוג הקרדנשיאל שהגדרנו
                     // ההגדרות בתוך הסוגריים הם: מאיזה איידי אנחנו רוצים לקחתת איך נקרא למשתנה שיאכסן את השם משתמש, איך נקרא למשתנה שיאכסן את הסיסמה
-                    usernamePassword(credentials: 'github', usernameVariable: USER, passwordVariable: PWD)
+                    usernamePassword(credentialsID: 'github', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
                     // כאן זה הבלוק שמושפע מהמשתני סביבה הפנימיים בתוך הבלוק שהגדרנו
                     sh "some script ${USER} ${PWD}"
