@@ -60,7 +60,7 @@ pipeline {
             when {
                 expression {
                     // הגדרה שהבלוק הזה ירוץ רק במצב שסימנו חיובי בהרצת הגוב
-                    params.VERSION3 = true
+                    params.VERSION3 == true
                 }
             }
             steps {
