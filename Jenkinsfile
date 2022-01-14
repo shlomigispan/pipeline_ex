@@ -1,4 +1,4 @@
-def gv = load "script.groovy"
+def gv 
 
 pipeline {
     agent any
@@ -7,6 +7,13 @@ pipeline {
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
+        stage("initghjf") {
+            steps {
+                script {
+                   gv = load "script.groovy" 
+                }
+            }
+        }
         stage("build") {
             steps {
                 script {
