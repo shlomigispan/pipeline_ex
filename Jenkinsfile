@@ -101,9 +101,6 @@ pipeline {
         stage("deploy") {
             
             steps {
-                script {
-                    
-                }
                 echo "deploying the app..." 
                 echo "deploying th ${SERVER_CRENTIALS}" 
 
