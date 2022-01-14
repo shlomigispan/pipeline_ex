@@ -7,7 +7,7 @@ pipeline {
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
-        stage("initghjf") {
+        stage("init") {
             steps {
                 script {
                    gv = load "script.groovy" 
